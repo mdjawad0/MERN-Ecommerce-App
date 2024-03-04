@@ -1,0 +1,18 @@
+version: '3.8'  # Specify the Docker Compose file version for clarity and compatibility
+
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    restart: unless-stopped  # Ensure that the backend service restarts automatically unless explicitly stopped
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    restart: unless-stopped  # Ensure that the frontend service restarts automatically unless explicitly stopped
